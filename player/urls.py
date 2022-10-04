@@ -1,0 +1,40 @@
+"""importing required modules"""
+from django.urls import path, include
+from .views import (RegisterAPI,LoginAPI,UserListCreate,UserDetail,
+                    TeamList,TeamDetail,CityList,ClassList,
+                    CountryList,CityDetail,StateList,StateDetail,
+                    ClassDetail,CountryDetail,HighschoolDetail,
+                    HighschoolList,OfferList,OfferDetail,PlayerList,
+                    PositionList,PositionDetail,InterestList,
+                    InterestDetail,TwitterList,TwitterDetail,PlayerDetail)
+
+
+urlpatterns = [
+    path('register/', RegisterAPI.as_view(), name='register'),
+    path('login/', LoginAPI.as_view(), name='login'),
+    path('user_list/', UserListCreate.as_view(), name='user'),
+    path('user_detail/<int:pk>/', UserDetail.as_view(), name='userdetail'),
+    path('team_list/', TeamList.as_view(), name='team'),
+    path('team_detail/<int:pk>/', TeamDetail.as_view(), name='teamdetail'),
+    path('city_list/', CityList.as_view(), name='city'),
+    path('city_detail/<int:pk>/', CityDetail.as_view(), name='citydetail'),
+    path('state_list/', StateList.as_view(), name='state'),
+    path('state_detail/<int:pk>/', StateDetail.as_view(), name='statedetail'),
+    path('country_list/', CountryList.as_view(), name='country'),
+    path('country_detail/<int:pk>/', CountryDetail.as_view(), name='countrydetail'),
+    path('highschool_list/', HighschoolList.as_view(), name='highschool'),
+    path('highschool_detail/<int:pk>/', HighschoolDetail.as_view(), name='highschooldetail'),
+    path('class_list/', ClassList.as_view(), name='class'),
+    path('class_detail/<int:pk>/', ClassDetail.as_view(), name='classdetail'),
+    path('offer_list/', OfferList.as_view(), name='offer'),
+    path('offer_detail/<int:pk>/', OfferDetail.as_view(), name='offerdetail'),
+    path('position_list/', PositionList.as_view(), name='position'),
+    path('position_detail/<int:pk>/', PositionDetail.as_view(), name='positiondetail'),
+    path('interest_list/', InterestList.as_view(), name='interest'),
+    path('interest_detail/<int:pk>/', InterestDetail.as_view(), name='interestdetail'),
+    path('twitter_list/', TwitterList.as_view(), name='twitter'),
+    path('twitter_detail/<int:pk>/', TwitterDetail.as_view(), name='twitterdetail'),
+    path('player_list/', PlayerList.as_view(), name='player'),
+    path('player_detail/<int:pk>/', PlayerDetail.as_view(), name='playerdetail'),
+    path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    ]
